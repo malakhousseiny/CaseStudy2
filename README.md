@@ -8,6 +8,7 @@
 - [Project Setup](#project-setup)
 - [Installing Required Packages](#installing-required-packages)
 - [Running the Project](#running-the-project)
+- [Project Structure](#Project-Structure)
 
 ## Project Overview
 
