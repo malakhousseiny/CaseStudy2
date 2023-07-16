@@ -13,7 +13,8 @@
 - [Adherence to Constraints](#Adherence-To-Constraints)
 - [Additional Information](#Additional-Information)
 - [Support](#Support)
-- [Contributions](#Contributions)
+- [Future Work & Flow Graph](#Future Work & Flow Graph)
+- [Credits and Future Work](#Credits-and-Future-Work)
 
 ## Project Overview
 
@@ -161,8 +162,14 @@ Remember to replace `/usr/bin/python3` and `/path/to/your/script.py` with the pa
 
 If you have any questions or face any issues while running the script, please raise an issue in this repository.
 
-## Contributions
+## Future Work & FlowGraph
 
+To make use of the intermediate files that are saved on disk the following day(s), we can use this methodology represented in my FlowGraph below:
+![Flow Graph- Malak HS](https://github.com/malakhousseiny/CaseStudy2/assets/79545309/38e90144-84ab-4d0d-a584-957e7da6ec76)
+
+## Credits
+
+Credit: [Malak HOUSSAINI]
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 
