@@ -13,7 +13,7 @@
 - [Adherence to Constraints](#Adherence-To-Constraints)
 - [Additional Information](#Additional-Information)
 - [Support](#Support)
-- [Future Work & Flow Graph](#Future Work & Flow Graph)
+- [Future Work & FlowGraph](#Future-Work-&-Flow-Graph)
 - [Credits and Future Work](#Credits-and-Future-Work)
 
 ## Project Overview
@@ -156,7 +156,9 @@ Remember to replace `/usr/bin/python3` and `/path/to/your/script.py` with the pa
 ## Additional Information
 
 - The script is designed to ignore corrupted rows in the input data. If a file cannot be opened, it will print a message and continue to the next file.
-- The script is designed to use a limited amount of RAM (less than 1 GB).
+- The script is designed to use a limited amount of RAM (less than 1 GB), these screenshots before and after running the code are a proof. (RAM Usage is between: 300-700MB Max)
+![RAM BEFORE RUNNING](https://github.com/malakhousseiny/CaseStudy2/assets/79545309/f5c407ee-c237-48bd-8785-a89070540e20)
+![RAM After RUNNING](https://github.com/malakhousseiny/CaseStudy2/assets/79545309/a086ae90-884b-4c44-ab15-ecfb2debbcad)
 
 ## Support
 
