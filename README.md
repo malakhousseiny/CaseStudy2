@@ -27,10 +27,10 @@ The solution leverages Python's built-in multiprocessing and collections librari
 Clone the project from the GitHub repository to your local machine using the following command in your terminal or command prompt:
 
 ```bash
-git clone <your_repository_url>
+git clone <repository_url>
 ```
 
-Replace `<your_repository_url>` with the URL of your GitHub repository.
+Replace `<repository_url>` with the URL of the GitHub repository: https://github.com/malakhousseiny/CaseStudy2.git
 
 ## Environment Setup
 
