@@ -25,9 +25,10 @@ The solution leverages Python's built-in multiprocessing and collections librari
 ## Downloading the Project
 
 Clone the project from the GitHub repository to your local machine using the following command in your terminal or command prompt:
-
-```bash
 git clone <repository_url>
+```bash
+git clone https://github.com/malakhousseiny/CaseStudy2.git
+
 ```
 
 Replace `<repository_url>` with the URL of the GitHub repository: https://github.com/malakhousseiny/CaseStudy2.git
