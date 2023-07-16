@@ -1,5 +1,88 @@
-__Case Study- DATA ENGINEER INTERN - By Deezer__
+## Step 1: Environment Setup
 
+1. Download and install Python: Visit the official Python website (https://www.python.org/) and download the latest version of Python. Follow the installation instructions for your operating system.
+
+2. Install VS Code: Download and install Visual Studio Code (https://code.visualstudio.com/), a lightweight and powerful code editor.
+
+## Step 2: Project Setup
+
+1. Create a new directory for our project: Open a terminal or command prompt, navigate to the desired location, and create a new directory using the `mkdir` command.
+
+2. Initialize a new Git repository: Inside the project directory, run the command `git init` to initialize a new Git repository. This will allow us to track changes and easily upload our code to GitHub.
+
+3. Create a new Python virtual environment: In the terminal, navigate to the project directory and run the command `python -m venv env` to create a new virtual environment.
+
+   - By using a virtual environment, you can create a controlled and reproducible environment for your project, ensuring that it runs consistently across different systems. Additionally, relying on a text editor or command line interface allows for flexibility and simplicity, making it easier to maintain and run the solution in a Linux production environment.
+
+4. Activate the virtual environment:
+
+   - For Windows: Run the command `env\Scripts\activate`.
+   - For macOS/Linux: Run the command `source env/bin/activate`.
+
+   (In case of encountering the "cannot be loaded because running scripts is disabled" error, refer to the provided instructions for Windows and Linux to resolve the issue.)
+
+## Step 3: Coding and Adherence to Constraints
+
+This Python script leverages multiprocessing, collections, and file handling techniques to process large amounts of data efficiently. The script reads data from log files that contain listening data for songs from various users and countries, then calculates the top 50 most listened songs for each user and country for the last 7 days.
+
+### Functions:
+
+- `process_log_file(file_path)`: This function reads a log file and records how many times each song has been played by each user and in each country. The data is stored in a defaultdict from the collections module, which allows easy and efficient counting of song plays. Any errors, such as corrupt lines or inaccessible files, are handled and do not stop the script from running.
+
+- `process_all_log_files(log_files)`: This function leverages the multiprocessing module to process multiple log files concurrently. It creates a pool of worker processes and distributes the log files among them. After processing, it combines the data from all processes into one dictionary.
+
+- `write_top_50(data, filename)`: This function takes in the processed data and writes the top 50 most listened songs for each key (country or user) to a file. It uses the `most_common` method from the Counter class in the collections module to get the top 50 songs for each key.
+
+- `get_subdirectories()`: This function lists all subdirectories within a predefined root directory (`ROOT_PATH`). It parses each subdirectory's name to extract a date, assuming a specific format ('sample_listen-YYYY-MM-DD_2Mlines'). A list of tuples is generated, with each tuple containing a `datetime` object of the parsed date and the corresponding directory's path. If the function encounters an error while parsing the date, it logs an error message and moves on to the next directory.
+
+- `process_log_files()`: This is the main function that orchestrates the whole process. It retrieves the list of log files from a specified root directory, sorts them by date in descending order to process the last 7 days of files, and uses the above functions to process the log files and write the results to output files. It creates separate files for each country and user. Any errors in date parsing are handled and do not stop the script from running.
+
+### Adherence to Constraints:
+
+- **Handling Corrupted Rows**: The script handles corrupted rows by using a `try`/`except` block in the `process_log_file()` function. When a line does not split into exactly three parts (song ID, user ID, and country), a `ValueError` is raised, and the script ignores this line and moves on to the next one.
+
+- **No Third-Party Systems**: This script does not rely on any third-party systems. It only uses Python's built-in libraries (`os`, `collections`, and `multiprocessing`).
+
+- **Limited RAM Usage**: The script processes each log file one by one, and for each file, it processes each line one by one. This means the script never needs to load an entire file into memory at once. Moreover, it uses `collections.Counter` to store counts, which is memory efficient. However, if the number of unique songs or unique countries/users is very large, memory usage can still be high. In such cases, additional techniques such as disk-based storage or data compression may be needed.
+
+- **Writing Intermediate Files**: This script doesn't write any intermediate files. It processes all data in memory. If needed, you could modify the script to store intermediate counts to disk (for example, you could write the `data` dictionary to a file after processing each log file).
+
+- **Linux Compatibility**: This script should be compatible with Linux, as it uses only Python's built-in libraries, which are platform independent. It does not have any Windows-specific code.
+
+- **Maintainability**: The script is organized into small, single-purpose functions, which improves maintainability. Comments are used to explain the purpose of each function and important parts of the code. The script is also robust because it handles errors and exceptions in file reading, date parsing, and data processing.
+
+- **Performance**: The script uses `multiprocessing` to process log files in parallel, which can greatly improve performance on multi-core systems. It uses `collections.Counter` for counting, which is fast. However, the performance can still be limited by disk I/O speed and the speed of the `most_common()` method when the number of unique songs is very large.
+
+## Project
+### Functions:
+
+- `process_log_file(file_path)`: This function reads a log file and records how many times each song has been played by each user and in each country. The data is stored in a defaultdict from the collections module, which allows easy and efficient counting of song plays. Any errors, such as corrupt lines or inaccessible files, are handled and do not stop the script from running.
+
+- `process_all_log_files(log_files)`: This function leverages the multiprocessing module to process multiple log files concurrently. It creates a pool of worker processes and distributes the log files among them. After processing, it combines the data from all processes into one dictionary.
+
+- `write_top_50(data, filename)`: This function takes in the processed data and writes the top 50 most listened songs for each key (country or user) to a file. It uses the `most_common` method from the Counter class in the collections module to get the top 50 songs for each key.
+
+- `get_subdirectories()`: This function lists all subdirectories within a predefined root directory (`ROOT_PATH`). It parses each subdirectory's name to extract a date, assuming a specific format ('sample_listen-YYYY-MM-DD_2Mlines'). A list of tuples is generated, with each tuple containing a `datetime` object of the parsed date and the corresponding directory's path. If the function encounters an error while parsing the date, it logs an error message and moves on to the next directory.
+
+- `process_log_files()`: This is the main function that orchestrates the whole process. It retrieves the list of log files from a specified root directory, sorts them by date in descending order to process the last 7 days of files, and uses the above functions to process the log files and write the results to output files. It creates separate files for each country and user. Any errors in date parsing are handled and do not stop the script from running.
+
+### Adherence to Constraints:
+
+- **Handling Corrupted Rows**: The script handles corrupted rows by using a `try`/`except` block in the `process_log_file()` function. When a line does not split into exactly three parts (song ID, user ID, and country), a `ValueError` is raised, and the script ignores this line and moves on to the next one.
+
+- **No Third-Party Systems**: This script does not rely on any third-party systems. It only uses Python's built-in libraries (`os`, `collections`, and `multiprocessing`).
+
+- **Limited RAM Usage**: The script processes each log file one by one, and for each file, it processes each line one by one. This means the script never needs to load an entire file into memory at once. Moreover, it uses `collections.Counter` to store counts, which is memory efficient. However, if the number of unique songs or unique countries/users is very large, memory usage can still be high. In such cases, additional techniques such as disk-based storage or data compression may be needed.
+
+- **Writing Intermediate Files**: This script doesn't write any intermediate files. It processes all data in memory. If needed, you could modify the script to store intermediate counts to disk (for example, you could write the `data` dictionary to a file after processing each log file).
+
+- **Linux Compatibility**: This script should be compatible with Linux, as it uses only Python's built-in libraries, which are platform independent. It does not have any Windows-specific code.
+
+- **Maintainability**: The script is organized into small, single-purpose functions, which improves maintainability. Comments are used to explain the purpose of each function and important parts of the code. The script is also robust because it handles errors and exceptions in file reading, date parsing, and data processing.
+
+- **Performance**: The script uses `multiprocessing` to process log files in parallel, which can greatly improve performance on multi-core systems. It uses `collections.Counter` for counting, which is fast. However, the performance can still be limited by disk I/O speed and the speed of the `most_common()` method when the number of unique songs is very large.
+
+## Project
 Step 1: Environment Setup
 
     Download and install Python: Visit the official Python website (https://www.python.org/) and download the latest version of Python. Follow the installation instructions for your operating system.
