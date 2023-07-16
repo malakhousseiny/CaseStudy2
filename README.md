@@ -25,10 +25,10 @@ The solution leverages Python's built-in multiprocessing and collections librari
 ## Downloading the Project
 
 Clone the project from the GitHub repository to your local machine using the following command in your terminal or command prompt:
-git clone <repository_url>
+git clone <repository_url> and the locate it to start working with it using vs or... using cd repository command 
 ```bash
 git clone https://github.com/malakhousseiny/CaseStudy2.git
-
+cd CaseStudy2
 ```
 
 Replace `<repository_url>` with the URL of the GitHub repository: https://github.com/malakhousseiny/CaseStudy2.git
@@ -46,7 +46,7 @@ Follow these steps to prepare your environment for running the project:
 Next, set up the project directory and prepare it for development:
 
 1. **Navigate to the Project Directory**: Open a terminal (or Command Prompt on Windows) and navigate to the directory of the cloned project.
-
+(to locate cd cd CaseStudy2)
 2. **Python Virtual Environment**: While in the project directory, create a new virtual environment for project-specific dependency management. This is separate from your global Python environment and helps avoid potential conflicts between dependencies. Run the command `python -m venv env` on Linux, or `py -m venv env` on Windows.
 
 3. **Activating the Virtual Environment**: To activate the virtual environment, run the appropriate command based on your operating system:
@@ -65,12 +65,17 @@ Make sure the `requirements.txt` file is in the same directory where you will ru
 
 ## Running the Project
 
-1. Update the `ROOT_PATH` variable in the Python script to point to your directory containing the daily log files.
-2. To run the project, navigate to the directory containing `main.py` and execute the command `python main.py`.
+1. To run the project, navigate to the directory containing `main.py` 
+2. Update the `ROOT_PATH` variable in the Python script to point to your directory containing the daily log files.
+ROOT_PATH = r"C:\Users\HMala\OneDrive\Desktop\CaseStudy-Malak HOUSSAINI"  # The directory where your data resides, needs to change on each pc
+Replace C:\Users\HMala\OneDrive\Desktop\CaseStudy-Malak HOUSSAINI with your actual root path, or else the code won't run successfully  
+4. Execute the code either on the terminal or directly through the run button.
+
 
 ## Project Structure
 
 The main script, `main.py`, processes the log files and generates two output files: `top50_songs_per_country.txt` and `top50_songs_per_user.txt`.
+If you want to test the code with 7 log folders, or 11 log folders to make sure about the result, you can change the path to the (Test Code with 7 log folders) or (Test Code with 11 log folders) respectively.
 
 ## Code Functionality
 
