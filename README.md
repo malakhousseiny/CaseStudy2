@@ -9,6 +9,11 @@
 - [Installing Required Packages](#installing-required-packages)
 - [Running the Project](#running-the-project)
 - [Project Structure](#Project-Structure)
+- [Code Functionality](#Code-Functionality)
+- [Adherence to Constraints](#Adherence-To-Constraints)
+- [Additional Information](#Additional-Information)
+- [Support](#Support)
+- [Contributions](#Contributions)
 
 ## Project Overview
 
@@ -147,16 +152,16 @@ This line will schedule your script to run every day at 12:30 AM.
 
 Remember to replace `/usr/bin/python3` and `/path/to/your/script.py` with the paths to your Python interpreter and your Python script respectively. You can find the path to your Python interpreter by running `which python3` in the terminal.
 
-# Additional Information
+## Additional Information
 
 - The script is designed to ignore corrupted rows in the input data. If a file cannot be opened, it will print a message and continue to the next file.
 - The script is designed to use a limited amount of RAM (less than 1 GB).
 
-# Support
+## Support
 
 If you have any questions or face any issues while running the script, please raise an issue in this repository.
 
-# Contributions
+## Contributions
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
